@@ -1,6 +1,7 @@
 package com.avisoft.pdfragchatbot.controller;
 
 import com.avisoft.pdfragchatbot.dto.ChatRequest;
+import com.avisoft.pdfragchatbot.dto.ChatResponse;
 import com.avisoft.pdfragchatbot.service.ChatService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +19,7 @@ public class ChatController {
     }
 
     @PostMapping
-    public String chat(@RequestBody ChatRequest request){
-        return chatService.chat(request.message());
+    public ChatResponse chat(@RequestBody ChatRequest request){
+        return chatService.ask(request.message());
     }
 }
