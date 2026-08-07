@@ -27,11 +27,11 @@ public class DocumentController {
     consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public UploadResponse upload(@RequestParam("file")
                                      MultipartFile file) throws IOException{
-        List<Document> documents = pdfService.read(file.getResource());
+        List<Document> chunks = pdfService.read(file.getResource());
 
         return new UploadResponse(
                 file.getOriginalFilename(),
-                documents.size()
+                chunks.size()
         );
     }
 }
